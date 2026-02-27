@@ -38,13 +38,16 @@ async def consumer(ws, path):
             await ws.send(json.dumps({'trnm': trnm or 'MSG', 'return_code': 0, 'echo': data}))
 
 async def handler(ws, path):
-    consumer_task = asyncio.ensure_future(consumer(ws, path))
-    producer_task = asyncio.ensure_future(producer(ws, path))
+    consumer_task = asyncio.create_task(consumer(ws, path))
+    producer_task = asyncio.create_task(producer(ws, path))
     done, pending = await asyncio.wait([consumer_task, producer_task], return_when=asyncio.FIRST_COMPLETED)
     for t in pending:
         t.cancel()
 
-if __name__ == '__main__':
+async def main():
     print(f'Starting mock WS server on ws://{HOST}:{PORT}')
-    asyncio.get_event_loop().run_until_complete(websockets.serve(handler, HOST, PORT))
-    asyncio.get_event_loop().run_forever()
+    async with websockets.serve(handler, HOST, PORT):
+        await asyncio.Future()  # run forever
+
+if __name__ == '__main__':
+    asyncio.run(main())
