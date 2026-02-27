@@ -3,9 +3,19 @@ TokenManager for OAuth-based Kiwoom REST API
 - Provides: synchronous and async helpers to load/store tokens, get access token with auto-refresh,
   and an HTTP request wrapper that handles 401->refresh->retry logic.
 
+Behavior changes made:
+- token endpoint and client id/secret are now resolved from environment variables (not hardcoded).
+  Priority for token endpoint:
+    1) KIWOOM_TOKEN_URL (full token endpoint)
+    2) KIWOOM_API_BASE + '/oauth2/token'
+    3) fallback by TRADING_ENV: mock -> 'https://mockapi.kiwoom.com/oauth2/token', real -> 'https://api.kiwoom.com/oauth2/token'
+
+- client_id / client_secret resolution:
+    1) KIWOOM_CLIENT_ID / KIWOOM_CLIENT_SECRET (explicit)
+    2) environment-specific: if TRADING_ENV=mock use KIWOOM_CLIENT_ID_MOCK / KIWOOM_CLIENT_SECRET_MOCK else use KIWOOM_CLIENT_ID_REAL / KIWOOM_CLIENT_SECRET_REAL
+
 NOTES:
-- This is a template. Fill OAUTH_CONFIG with real token_url/client_id/client_secret.
-- For production, replace file-backed TokenStore with a secret manager/keyring.
+- For production, store secrets in a secret manager and avoid plain .env files.
 """
 import time
 import json
@@ -14,17 +24,44 @@ import threading
 from typing import Optional
 import requests
 
-# CONFIG: replace with real values or load from environment
+# Resolve configuration from environment (remove hardcoded endpoints)
+TRADING_ENV = os.getenv('TRADING_ENV', os.getenv('ENV', 'mock')).lower()
+
+# Token endpoint resolution
+_token_url = os.getenv('KIWOOM_TOKEN_URL')
+if not _token_url:
+    _api_base = os.getenv('KIWOOM_API_BASE')
+    if _api_base:
+        _token_url = _api_base.rstrip('/') + '/oauth2/token'
+    else:
+        # fallback based on trading env
+        if TRADING_ENV == 'mock':
+            _token_url = 'https://mockapi.kiwoom.com/oauth2/token'
+        else:
+            _token_url = 'https://api.kiwoom.com/oauth2/token'
+
+# client id / secret resolution
+_client_id = os.getenv('KIWOOM_CLIENT_ID')
+_client_secret = os.getenv('KIWOOM_CLIENT_SECRET')
+if not _client_id or not _client_secret:
+    if TRADING_ENV == 'mock':
+        _client_id = os.getenv('KIWOOM_CLIENT_ID_MOCK', _client_id)
+        _client_secret = os.getenv('KIWOOM_CLIENT_SECRET_MOCK', _client_secret)
+    else:
+        _client_id = os.getenv('KIWOOM_CLIENT_ID_REAL', _client_id)
+        _client_secret = os.getenv('KIWOOM_CLIENT_SECRET_REAL', _client_secret)
+
 OAUTH_CONFIG = {
-    'token_url': os.getenv('KIWOOM_TOKEN_URL', 'https://auth.kiwoom.example/oauth/token'),
-    'client_id': os.getenv('KIWOOM_CLIENT_ID', ''),
-    'client_secret': os.getenv('KIWOOM_CLIENT_SECRET', ''),
+    'token_url': _token_url,
+    'client_id': _client_id or '',
+    'client_secret': _client_secret or '',
 }
 
 TOKEN_STORE_PATH = os.getenv('KIWOOM_TOKEN_STORE', 'kiwoom_token_store.json')
 SAFETY_MARGIN = int(os.getenv('KIWOOM_TOKEN_SAFETY_MARGIN', '60'))  # seconds
 
 _lock = threading.Lock()
+
 
 class TokenStore:
     @staticmethod
@@ -43,6 +80,7 @@ class TokenStore:
         with open(tmp, 'w') as f:
             json.dump(data, f)
         os.replace(tmp, TOKEN_STORE_PATH)
+
 
 class TokenManager:
     def __init__(self, config: dict = None):
@@ -102,10 +140,10 @@ class TokenManager:
         data = {
             'grant_type': 'refresh_token',
             'refresh_token': self._token['refresh_token'],
-            'client_id': self.config['client_id'],
-            'client_secret': self.config['client_secret'],
+            'client_id': self.config.get('client_id', ''),
+            'client_secret': self.config.get('client_secret', ''),
         }
-        url = self.config['token_url']
+        url = self.config.get('token_url')
         for attempt in range(3):
             try:
                 r = requests.post(url, data=data, timeout=5)
@@ -121,15 +159,15 @@ class TokenManager:
                     }
                     self._persist()
                     return
-                elif r.status_code in (400,401):
+                elif r.status_code in (400, 401):
                     # refresh token invalid -> clear
                     self._token = None
                     self._persist()
                     return
                 else:
-                    time.sleep(0.5 * (2**attempt))
+                    time.sleep(0.5 * (2 ** attempt))
             except Exception:
-                time.sleep(0.5 * (2**attempt))
+                time.sleep(0.5 * (2 ** attempt))
         # if we reach here, refresh failed
         raise RuntimeError('Failed to refresh token')
 
@@ -146,6 +184,7 @@ class TokenManager:
             'expires_at': int(time.time() + expires_in),
         }
         self._persist()
+
 
 # convenience HTTP wrapper
 
@@ -168,6 +207,7 @@ def auth_request(method: str, url: str, token_manager: TokenManager, **kwargs):
         except Exception:
             pass
     return r
+
 
 # Async helpers using aiohttp
 try:
