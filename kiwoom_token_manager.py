@@ -4,11 +4,10 @@ TokenManager for OAuth-based Kiwoom REST API
   and an HTTP request wrapper that handles 401->refresh->retry logic.
 
 Behavior changes made:
-- token endpoint and client id/secret are now resolved from environment variables (not hardcoded).
+- token endpoint and client id/secret are resolved from environment variables (not hardcoded).
   Priority for token endpoint:
-    1) KIWOOM_TOKEN_URL (full token endpoint)
-    2) KIWOOM_API_BASE + '/oauth2/token'
-    3) fallback by TRADING_ENV: mock -> 'https://mockapi.kiwoom.com/oauth2/token', real -> 'https://api.kiwoom.com/oauth2/token'
+    1) KIWOOM_API_BASE + '/oauth2/token' if KIWOOM_API_BASE is set
+    2) fallback by TRADING_ENV: mock -> 'https://mockapi.kiwoom.com/oauth2/token', real -> 'https://api.kiwoom.com/oauth2/token'
 
 - client_id / client_secret resolution:
     1) KIWOOM_CLIENT_ID / KIWOOM_CLIENT_SECRET (explicit)
@@ -27,18 +26,15 @@ import requests
 # Resolve configuration from environment (remove hardcoded endpoints)
 TRADING_ENV = os.getenv('TRADING_ENV', os.getenv('ENV', 'mock')).lower()
 
-# Token endpoint resolution
-_token_url = os.getenv('KIWOOM_TOKEN_URL')
-if not _token_url:
-    _api_base = os.getenv('KIWOOM_API_BASE')
-    if _api_base:
-        _token_url = _api_base.rstrip('/') + '/oauth2/token'
+# Token endpoint resolution: prefer KIWOOM_API_BASE if present, otherwise fallback by TRADING_ENV
+_api_base = os.getenv('KIWOOM_API_BASE')
+if _api_base:
+    _token_url = _api_base.rstrip('/') + '/oauth2/token'
+else:
+    if TRADING_ENV == 'mock':
+        _token_url = 'https://mockapi.kiwoom.com/oauth2/token'
     else:
-        # fallback based on trading env
-        if TRADING_ENV == 'mock':
-            _token_url = 'https://mockapi.kiwoom.com/oauth2/token'
-        else:
-            _token_url = 'https://api.kiwoom.com/oauth2/token'
+        _token_url = 'https://api.kiwoom.com/oauth2/token'
 
 # client id / secret resolution
 _client_id = os.getenv('KIWOOM_CLIENT_ID')
