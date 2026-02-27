@@ -37,7 +37,9 @@ async def consumer(ws, path):
             # for other messages, optionally echo or ignore
             await ws.send(json.dumps({'trnm': trnm or 'MSG', 'return_code': 0, 'echo': data}))
 
-async def handler(ws, path):
+async def handler(ws, path=None):
+    # websockets library versions differ in whether they pass a 'path' arg.
+    # Accept path as optional for compatibility and forward to tasks.
     consumer_task = asyncio.create_task(consumer(ws, path))
     producer_task = asyncio.create_task(producer(ws, path))
     done, pending = await asyncio.wait([consumer_task, producer_task], return_when=asyncio.FIRST_COMPLETED)
