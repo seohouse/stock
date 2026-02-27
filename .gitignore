@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtualenv
+.venv/
+venv/
+ENV/
+.env
+
+# logs and runtime
+logs/
+*.log
+/tmp/
+
+# secrets and tokens
+kiwoom_token_store.json
+*.pem
+*.key
+memory/
+
+# IDEs
+.vscode/
+.idea/
+
+# archives
+workspace_zips/
+
+# OS files
+.DS_Store

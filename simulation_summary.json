@@ -1,0 +1,286 @@
+{
+  "total_runs": 10,
+  "total_trades": 35,
+  "pairs": [
+    {
+      "symbol": "005930",
+      "buy_ts": "2026-02-27T01:07:49",
+      "sell_ts": "2026-02-27T01:07:52",
+      "duration_s": 3.0,
+      "buy_price": 79900.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "120056",
+      "buy_ts": "2026-02-27T01:09:15",
+      "sell_ts": "2026-02-27T01:09:17",
+      "duration_s": 2.0,
+      "buy_price": 62200,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "530694",
+      "buy_ts": "2026-02-27T01:10:49",
+      "sell_ts": "2026-02-27T01:10:51",
+      "duration_s": 2.0,
+      "buy_price": 56000,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "261369",
+      "buy_ts": "2026-02-27T07:40:33",
+      "sell_ts": "2026-02-27T07:40:33",
+      "duration_s": 0.0,
+      "buy_price": 52600.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "395659",
+      "buy_ts": "2026-02-27T07:43:20",
+      "sell_ts": "2026-02-27T07:43:20",
+      "duration_s": 0.0,
+      "buy_price": 12300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "697205",
+      "buy_ts": "2026-02-27T07:43:26",
+      "sell_ts": "2026-02-27T07:43:27",
+      "duration_s": 1.0,
+      "buy_price": 46000.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "202831",
+      "buy_ts": "2026-02-27T07:43:32",
+      "sell_ts": "2026-02-27T07:43:33",
+      "duration_s": 1.0,
+      "buy_price": 52100.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "694439",
+      "buy_ts": "2026-02-27T07:43:38",
+      "sell_ts": "2026-02-27T07:43:39",
+      "duration_s": 1.0,
+      "buy_price": 22500.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "145732",
+      "buy_ts": "2026-02-27T07:43:45",
+      "sell_ts": "2026-02-27T07:43:45",
+      "duration_s": 0.0,
+      "buy_price": 28500.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "568775",
+      "buy_ts": "2026-02-27T07:43:51",
+      "sell_ts": "2026-02-27T07:43:51",
+      "duration_s": 0.0,
+      "buy_price": 70300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "868389",
+      "buy_ts": "2026-02-27T07:43:57",
+      "sell_ts": "2026-02-27T07:43:57",
+      "duration_s": 0.0,
+      "buy_price": 45100.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "735213",
+      "buy_ts": "2026-02-27T07:44:03",
+      "sell_ts": "2026-02-27T07:44:04",
+      "duration_s": 1.0,
+      "buy_price": 18700.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "205022",
+      "buy_ts": "2026-02-27T07:44:09",
+      "sell_ts": "2026-02-27T07:44:10",
+      "duration_s": 1.0,
+      "buy_price": 72500.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "405398",
+      "buy_ts": "2026-02-27T07:44:15",
+      "sell_ts": "2026-02-27T07:44:16",
+      "duration_s": 1.0,
+      "buy_price": 43200.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "295420",
+      "buy_ts": "2026-02-27T08:02:32",
+      "sell_ts": "2026-02-27T08:02:32",
+      "duration_s": 0.0,
+      "buy_price": 26900.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "096161",
+      "buy_ts": "2026-02-27T08:02:38",
+      "sell_ts": "2026-02-27T08:02:38",
+      "duration_s": 0.0,
+      "buy_price": 67900.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "871539",
+      "buy_ts": "2026-02-27T08:02:44",
+      "sell_ts": "2026-02-27T08:02:45",
+      "duration_s": 1.0,
+      "buy_price": 44200.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "774996",
+      "buy_ts": "2026-02-27T08:02:50",
+      "sell_ts": "2026-02-27T08:02:51",
+      "duration_s": 1.0,
+      "buy_price": 43400.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "270150",
+      "buy_ts": "2026-02-27T08:02:57",
+      "sell_ts": "2026-02-27T08:02:57",
+      "duration_s": 0.0,
+      "buy_price": 27700.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "030816",
+      "buy_ts": "2026-02-27T08:03:03",
+      "sell_ts": "2026-02-27T08:03:03",
+      "duration_s": 0.0,
+      "buy_price": 13100.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "810174",
+      "buy_ts": "2026-02-27T08:03:09",
+      "sell_ts": "2026-02-27T08:03:09",
+      "duration_s": 0.0,
+      "buy_price": 79300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "784593",
+      "buy_ts": "2026-02-27T08:03:15",
+      "sell_ts": "2026-02-27T08:03:15",
+      "duration_s": 0.0,
+      "buy_price": 11200.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "171270",
+      "buy_ts": "2026-02-27T08:03:21",
+      "sell_ts": "2026-02-27T08:03:22",
+      "duration_s": 1.0,
+      "buy_price": 63300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "825012",
+      "buy_ts": "2026-02-27T08:03:27",
+      "sell_ts": "2026-02-27T08:03:28",
+      "duration_s": 1.0,
+      "buy_price": 41200.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "TEST",
+      "buy_ts": "2026-02-27T08:51:48",
+      "sell_ts": "2026-02-27T08:51:48",
+      "duration_s": 0.0,
+      "buy_price": 123,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "153531",
+      "buy_ts": "2026-02-27T09:44:17",
+      "sell_ts": "2026-02-27T09:44:17",
+      "duration_s": 0.0,
+      "buy_price": 67300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "701883",
+      "buy_ts": "2026-02-27T09:44:23",
+      "sell_ts": "2026-02-27T09:44:24",
+      "duration_s": 1.0,
+      "buy_price": 12800.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "408338",
+      "buy_ts": "2026-02-27T09:44:30",
+      "sell_ts": "2026-02-27T09:44:30",
+      "duration_s": 0.0,
+      "buy_price": 26300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "299529",
+      "buy_ts": "2026-02-27T09:44:36",
+      "sell_ts": "2026-02-27T09:44:36",
+      "duration_s": 0.0,
+      "buy_price": 30100.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "911455",
+      "buy_ts": "2026-02-27T09:44:42",
+      "sell_ts": "2026-02-27T09:44:43",
+      "duration_s": 1.0,
+      "buy_price": 36900.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "139017",
+      "buy_ts": "2026-02-27T09:44:48",
+      "sell_ts": "2026-02-27T09:44:49",
+      "duration_s": 1.0,
+      "buy_price": 71100.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "952329",
+      "buy_ts": "2026-02-27T09:44:55",
+      "sell_ts": "2026-02-27T09:44:55",
+      "duration_s": 0.0,
+      "buy_price": 21900.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "125745",
+      "buy_ts": "2026-02-27T09:45:01",
+      "sell_ts": "2026-02-27T09:45:01",
+      "duration_s": 0.0,
+      "buy_price": 17100.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "535696",
+      "buy_ts": "2026-02-27T09:45:07",
+      "sell_ts": "2026-02-27T09:45:08",
+      "duration_s": 1.0,
+      "buy_price": 26300.0,
+      "sell_price": "market"
+    },
+    {
+      "symbol": "343351",
+      "buy_ts": "2026-02-27T09:45:13",
+      "sell_ts": "2026-02-27T09:45:14",
+      "duration_s": 1.0,
+      "buy_price": 39300.0,
+      "sell_price": "market"
+    }
+  ]
+}

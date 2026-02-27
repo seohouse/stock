@@ -1,0 +1,178 @@
+{
+  "ka10023": {
+    "api": "ka10023",
+    "desc": "거래량급증요청",
+    "data": [
+      {
+        "symbol": "005930",
+        "prev_volume": 128592,
+        "current_volume": 491153,
+        "delta": 362561,
+        "delta_rate_pct": 281.95
+      },
+      {
+        "symbol": "000660",
+        "prev_volume": 719364,
+        "current_volume": 490834,
+        "delta": -228529,
+        "delta_rate_pct": -31.77
+      },
+      {
+        "symbol": "120056",
+        "prev_volume": 897071,
+        "current_volume": 5394680,
+        "delta": 4497609,
+        "delta_rate_pct": 501.37
+      },
+      {
+        "symbol": "530694",
+        "prev_volume": 417960,
+        "current_volume": 2051502,
+        "delta": 1633542,
+        "delta_rate_pct": 390.84
+      }
+    ]
+  },
+  "ka10024": {
+    "api": "ka10024",
+    "symbol": "000660",
+    "prev_volume": 233592,
+    "current_volume": 592836,
+    "prev_diff": 359244
+  },
+  "ka10030": {
+    "api": "ka10030",
+    "top": [
+      {
+        "symbol": "000660",
+        "today_volume": 1770704,
+        "current_price": 63593
+      },
+      {
+        "symbol": "530694",
+        "today_volume": 1481227,
+        "current_price": 13096
+      },
+      {
+        "symbol": "120056",
+        "today_volume": 881243,
+        "current_price": 79716
+      },
+      {
+        "symbol": "005930",
+        "today_volume": 64602,
+        "current_price": 69887
+      }
+    ]
+  },
+  "ka10031": {
+    "api": "ka10031",
+    "top": [
+      {
+        "symbol": "005930",
+        "prev_day_volume": 1751361,
+        "prev_close": 40099
+      },
+      {
+        "symbol": "120056",
+        "prev_day_volume": 1465486,
+        "prev_close": 73415
+      },
+      {
+        "symbol": "000660",
+        "prev_day_volume": 1175668,
+        "prev_close": 56936
+      },
+      {
+        "symbol": "530694",
+        "prev_day_volume": 835464,
+        "prev_close": 20278
+      }
+    ]
+  },
+  "ka10055": {
+    "api": "ka10055",
+    "symbol": "005930",
+    "prev_day_volume": 673617,
+    "today_volume": 170635,
+    "today_vs_prev_pct": 25.33
+  },
+  "ka10079": {
+    "api": "ka10079",
+    "symbol": "000660",
+    "ticks": [
+      {
+        "time": 1772145025.6270568,
+        "price": 38232,
+        "qty": 35,
+        "side": "B"
+      },
+      {
+        "time": 1772145026.627066,
+        "price": 27441,
+        "qty": 527,
+        "side": "B"
+      },
+      {
+        "time": 1772145027.6270726,
+        "price": 10898,
+        "qty": 257,
+        "side": "B"
+      },
+      {
+        "time": 1772145028.627077,
+        "price": 51100,
+        "qty": 351,
+        "side": "S"
+      },
+      {
+        "time": 1772145029.6270807,
+        "price": 47786,
+        "qty": 536,
+        "side": "S"
+      },
+      {
+        "time": 1772145030.6270843,
+        "price": 76103,
+        "qty": 389,
+        "side": "S"
+      },
+      {
+        "time": 1772145031.6270876,
+        "price": 14906,
+        "qty": 47,
+        "side": "B"
+      },
+      {
+        "time": 1772145032.6270914,
+        "price": 67962,
+        "qty": 775,
+        "side": "S"
+      },
+      {
+        "time": 1772145033.6270952,
+        "price": 35952,
+        "qty": 472,
+        "side": "B"
+      },
+      {
+        "time": 1772145034.6271026,
+        "price": 32972,
+        "qty": 753,
+        "side": "B"
+      }
+    ]
+  },
+  "ka10021": {
+    "api": "ka10021",
+    "symbol": "120056",
+    "ask_volume_increase": 4314,
+    "bid_volume_increase": 4488,
+    "ratio": 5.46
+  },
+  "ka10022": {
+    "api": "ka10022",
+    "symbol": "530694",
+    "residual_rate_increase_pct": 81.64
+  }
+}
