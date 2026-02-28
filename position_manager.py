@@ -1,3 +1,8 @@
 #!/usr/bin/env python3
 import runpy, sys
-runpy.run_path('src/position_manager.py', run_name='__main__')
+d = runpy.run_path('src/position_manager.py')
+globals().update(d)
+if __name__ == '__main__':
+    # if the module defines a main(), call it; otherwise nothing
+    if 'main' in globals():
+        main()
